@@ -1,0 +1,298 @@
+html = r'''<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Currículum vitae personal de Luis Felipe Molina Ibarra.">
+  <title>Currículum | Luis Felipe Molina Ibarra</title>
+  <style>
+    :root {
+      --bg: #f3f5f9;
+      --surface: #ffffff;
+      --ink: #182235;
+      --muted: #667085;
+      --accent: #2457d6;
+      --accent-soft: #eaf0ff;
+      --line: #e5e9f1;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .page {
+      width: min(100% - 32px, 980px);
+      margin: 42px auto;
+      background: var(--surface);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 18px 55px rgba(25, 42, 75, .10);
+    }
+
+    header {
+      padding: 54px 58px 46px;
+      color: white;
+      background: linear-gradient(120deg, #14264b, #2457d6);
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 50%;
+      right: -55px;
+      top: -95px;
+      box-shadow: 0 0 0 28px rgba(255,255,255,.045), 0 0 0 58px rgba(255,255,255,.035);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #cbd8ff;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 680px;
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.35rem);
+      line-height: 1.08;
+      letter-spacing: -.04em;
+    }
+
+    .role {
+      margin: 16px 0 0;
+      color: #e0e8ff;
+      font-size: 1.12rem;
+    }
+
+    .contact-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      margin-top: 28px;
+      color: #f1f4ff;
+      font-size: .9rem;
+    }
+
+    .contact-strip span { opacity: .95; }
+    main { padding: 42px 58px 54px; }
+
+    section { margin-bottom: 34px; }
+    section:last-child { margin-bottom: 0; }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 17px;
+      color: #1b2b4a;
+      font-size: 1.08rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h2::before {
+      content: "";
+      width: 5px;
+      height: 22px;
+      border-radius: 5px;
+      background: var(--accent);
+    }
+
+    p { margin: 0; color: #465268; }
+    .summary { max-width: 780px; font-size: 1.02rem; }
+
+    .entry {
+      padding: 0 0 18px 19px;
+      border-left: 2px solid var(--line);
+      position: relative;
+    }
+
+    .entry:last-child { padding-bottom: 0; }
+    .entry::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .entry h3 {
+      margin: 0;
+      color: #202c42;
+      font-size: 1rem;
+    }
+
+    .meta {
+      margin: 3px 0 7px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .skill {
+      padding: 7px 12px;
+      border: 1px solid #dce5ff;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #2349a6;
+      font-size: .88rem;
+      font-weight: 600;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+    }
+
+    .note {
+      padding: 16px 18px;
+      border-radius: 12px;
+      background: #f7f9fd;
+      border: 1px solid var(--line);
+    }
+
+    footer {
+      padding: 17px 58px;
+      background: #f8f9fc;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .82rem;
+      text-align: center;
+    }
+
+    @media (max-width: 650px) {
+      .page { width: min(100% - 18px, 980px); margin: 9px auto; border-radius: 12px; }
+      header { padding: 38px 25px 34px; }
+      main { padding: 32px 25px 40px; }
+      footer { padding: 16px 25px; }
+      .two-col { grid-template-columns: 1fr; gap: 26px; }
+      .contact-strip { flex-direction: column; gap: 5px; }
+    }
+
+    @media print {
+      body { background: white; }
+      .page { width: 100%; margin: 0; box-shadow: none; border-radius: 0; }
+      header { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      footer { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <p class="eyebrow">Currículum vitae</p>
+      <h1>Luis Felipe Molina Ibarra</h1>
+      <p class="role">Estudiante de Ingeniería en Sistemas</p>
+      <div class="contact-strip">
+        <span>📍 Celaya, Guanajuato, México</span>
+        <span>✉️ correo@ejemplo.com</span>
+        <span>☎️ +52 000 000 0000</span>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h2>Perfil profesional</h2>
+        <p class="summary">
+          Estudiante de Ingeniería en Sistemas con interés en el desarrollo de software,
+          la tecnología y la solución de problemas. Me interesa fortalecer mis conocimientos
+          de programación y aprender nuevas herramientas para desarrollar proyectos útiles.
+          Me considero una persona con disposición para aprender y mejorar continuamente.
+        </p>
+      </section>
+
+      <section>
+        <h2>Formación académica</h2>
+        <div class="entry">
+          <h3>Ingeniería en Sistemas</h3>
+          <p class="meta">Instituto Tecnológico de Celaya · En curso</p>
+          <p>Formación enfocada en programación, sistemas computacionales y fundamentos tecnológicos.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Conocimientos</h2>
+        <div class="skills">
+          <span class="skill">Fundamentos de Java</span>
+          <span class="skill">Programación orientada a objetos</span>
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">Lógica de programación</span>
+          <span class="skill">Microsoft Office</span>
+        </div>
+      </section>
+
+      <div class="two-col">
+        <section>
+          <h2>Habilidades</h2>
+          <div class="note">
+            <p>Aprendizaje continuo</p>
+            <p>Resolución de problemas</p>
+            <p>Atención al detalle</p>
+            <p>Trabajo en equipo</p>
+            <p>Interés por la tecnología</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Intereses</h2>
+          <div class="note">
+            <p>Desarrollo de software</p>
+            <p>Computación y hardware</p>
+            <p>Simuladores de carreras</p>
+            <p>Innovación tecnológica</p>
+          </div>
+        </section>
+      </div>
+
+      <section>
+        <h2>Experiencia y proyectos</h2>
+        <div class="entry">
+          <h3>Proyectos académicos</h3>
+          <p class="meta">Prácticas y actividades escolares</p>
+          <p>Desarrollo de ejercicios de programación en Java y elaboración de páginas web
+            utilizando HTML y CSS. Esta sección se puede ampliar con proyectos terminados,
+            prácticas profesionales o experiencia laboral.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Idiomas</h2>
+        <p>Español: nativo</p>
+        <p>Inglés: agrega aquí tu nivel</p>
+      </section>
+    </main>
+
+    <footer>
+      Currículum vitae · Luis Felipe Molina Ibarra
+    </footer>
+  </div>
+</body>
+</html>
+'''
+
+path = Path("/mnt/data/index.html")
+path.write_text(html, encoding="utf-8")
+print(f"Archivo creado: {path}")
